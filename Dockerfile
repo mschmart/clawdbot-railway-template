@@ -59,6 +59,9 @@ RUN apt-get update \
      gh \
   && rm -rf /var/lib/apt/lists/*
 
+# MCP client runtime (mcporter) so it persists across redeploys
+RUN npm install -g mcporter && npm cache clean --force
+
 WORKDIR /app
 
 # Wrapper deps
